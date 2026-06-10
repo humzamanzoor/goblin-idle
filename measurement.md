@@ -5,17 +5,15 @@ description: Runs CPU benchmarks using the cryptsetup utility.
 active-channels:
   - RAPL/$this-package-0=sut_cpu CPU package power via RAPL
   - RAPL/$this-core=sut_core CPU core power via RAPL
+  - SP3-eaac7c3a4ae9ea11a4305e8f994a5d01/out1=odroid2 Odroid2 SUT device
+  - SP3-9648672541e9ea1184d25e8f994a5d01/out1=switch1 Linksys 16-port Ethernet switch 1
+  - SP3-9648672541e9ea1184d25e8f994a5d01/out2=sw1tch2 Linksys 16-port Ethernet switch 2
+  - SP3-3a08929c0deaea11a5a061e7994a5d01/out1=wifi1 Asus wifi access point 1
+  - SP3-3a08929c0deaea11a5a061e7994a5d01/out2=wifi2 Asus wifi access point 2
+  - SP3-527c26c547e9ea118bca5e8f994a5d01/out1=wifi3 Asus wifi access point 3
 active-resources:
   - $all|memory/memory-free=free_ram Free RAM memory
   - $all|memory/memory-used=used_ram Used RAM memory
-#active-channels:
-#  - RAPL/sut-package-0=sut_cpu CPU package power via RAPL
-#  - RAPL/sut-core=sut_core CPU core power via RAPL
-#active-resources:
-#  - sut|memory/memory-free=free_ram Free RAM memory
-#  - sut|memory/memory-used=used_ram Used RAM memory
-#active-nodes:
-#  - sut
 resource-filters:
   - memory-used
   - memory-free
@@ -28,7 +26,7 @@ resource-filters:
   - cpu-idle
   - counter
 initialization-strategy:
-  - RequireActive
+  - IncludeAllFree
 sections:
   - intro
   - another
